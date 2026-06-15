@@ -1,0 +1,23 @@
+"Policy-01: Force HTTPS only and denies all HTTP access"
+
+{
+"Version": "2012-10-17",
+"Statement": [
+{
+"Sid": "ForceHTTPS",
+"Effect": "Deny",
+"Principal": "*",
+"Action": "s3:*",
+2/4
+"Resource": [
+"arn:aws:s3:::boutiquemode-tn-website-ys-mbn",
+"arn:aws:s3:::boutiquemode-tn-website-ys-mbn/*"
+],
+"Condition": {
+"Bool": {
+"aws:SecureTransport": "false"
+}
+}
+}
+]
+}
